@@ -1,9 +1,12 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 
 
 def test_register_user():
-    driver = webdriver.Firefox()
+    DRIVER="geckodriver"
+    service = Service(executable_path=DRIVER)
+    driver = webdriver.Firefox(service=service)
     driver.maximize_window()
     driver.implicitly_wait(30)
     driver.get("http://seleniumdemo.com/")
