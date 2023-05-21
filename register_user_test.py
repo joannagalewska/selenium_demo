@@ -4,7 +4,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from webdriver_manager.core.utils import ChromeType
 
 def test_register_user():
-    driver = webdriver.Chrome(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install())    
+    driver = webdriver.Firefox()  
     driver.implicitly_wait(30)
     driver.get("http://seleniumdemo.com/")
     driver.find_element(By.XPATH, "//span[text()='My account']").click()
