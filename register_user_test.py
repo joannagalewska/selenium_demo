@@ -5,7 +5,7 @@ from webdriver_manager.core.utils import ChromeType
 from selenium.webdriver.common.by import By
 
 def test_register_user():
-    driver = webdriver.Chrome(service=ChromiumService(ChromeDriverManager(chrome_type=ChromeType.CHROMIUM).install()))
+    driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.maximize_window()
     driver.implicitly_wait(30)
     driver.get("http://seleniumdemo.com/")
