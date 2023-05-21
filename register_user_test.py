@@ -16,3 +16,4 @@ def test_register_user():
     driver.find_element(By.NAME, "register").click()
     error = driver.find_element(By.XPATH, "//ul[@class='woocommerce-error']//li").text
     assert "An account is already registered with your email address" in error
+    driver.quit()
