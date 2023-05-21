@@ -1,11 +1,10 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromiumService
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.core.utils import ChromeType
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 
 def test_register_user():
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
     driver.maximize_window()
     driver.implicitly_wait(30)
     driver.get("http://seleniumdemo.com/")
