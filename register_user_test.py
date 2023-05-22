@@ -6,7 +6,7 @@ from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 
 def test_register_user():
-    driver = webdriver.Firefox(service=FirefoxService(GeckoDriverManager().install()))
+    driver = webdriver.Firefox(executable_path="/usr/local/bin/geckodriver")
     driver.implicitly_wait(30)
     driver.get("http://seleniumdemo.com/")
     driver.find_element(By.XPATH, "//span[text()='My account']").click()
