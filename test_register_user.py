@@ -1,5 +1,6 @@
 import random
 import os
+import time
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
@@ -15,11 +16,14 @@ def test_register_user():
     unique_email = f"test{random_number}@test.pl"
 
     email = os.environ.get("EMAIL", unique_email)
+    password = os.environ.get("PASSWORD", "password123")
 
     driver.get("http://seleniumdemo.com/")
     driver.find_element(By.XPATH, "//span[text()='My account']").click()
     driver.find_element(By.ID, "reg_email").send_keys(email)
-    driver.find_element(By.ID, "reg_password").send_keys("test@test.pl")
+    driver.find_element(By.ID, "reg_password").send_keys(password)
+
+    time.sleep(5)
     driver.find_element(By.NAME, "register").click()
 
     wait = WebDriverWait(driver, 10)
