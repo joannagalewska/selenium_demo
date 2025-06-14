@@ -1,9 +1,10 @@
+import random
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-import random
 
 
 def test_register_user():
@@ -13,9 +14,11 @@ def test_register_user():
     random_number = random.randint(1000, 9999)
     unique_email = f"test{random_number}@test.pl"
 
+    email = os.environ.get("EMAIL", unique_email)
+
     driver.get("http://seleniumdemo.com/")
     driver.find_element(By.XPATH, "//span[text()='My account']").click()
-    driver.find_element(By.ID, "reg_email").send_keys(unique_email)
+    driver.find_element(By.ID, "reg_email").send_keys(email)
     driver.find_element(By.ID, "reg_password").send_keys("test@test.pl")
     driver.find_element(By.NAME, "register").click()
 
